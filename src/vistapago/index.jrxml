@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d804ec4c-3767-4938-b971-b941ae4ba659">
+	<property name="ireport.zoom" value="1.3310000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="d1" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="d2" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nombre" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\gateway1\\Documents\\NetBeansProjects\\vistapago\\src\\vistapago\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from doctospago
+where nombre like '%$P!{nombre}%' and (folio between $P{d1} and $P{d2})]]>
+	</queryString>
+	<field name="Id" class="java.lang.Integer"/>
+	<field name="ClaveUsuario" class="java.lang.String"/>
+	<field name="Serie" class="java.lang.String"/>
+	<field name="Folio" class="java.lang.Long"/>
+	<field name="NumeroAprobacion" class="java.lang.Long"/>
+	<field name="AnoAprobacion" class="java.lang.Integer"/>
+	<field name="Fecha" class="java.sql.Timestamp"/>
+	<field name="Estatus" class="java.lang.Integer"/>
+	<field name="FechaCancel" class="java.sql.Timestamp"/>
+	<field name="Descuento" class="java.lang.Double"/>
+	<field name="MotivoDescuento" class="java.lang.String"/>
+	<field name="NumPedido" class="java.lang.String"/>
+	<field name="FechaSolicitado" class="java.sql.Timestamp"/>
+	<field name="Condicion" class="java.lang.String"/>
+	<field name="FechaEntrega" class="java.sql.Timestamp"/>
+	<field name="Retenciones" class="java.lang.Short"/>
+	<field name="Iva" class="java.lang.Double"/>
+	<field name="IVAret" class="java.lang.Double"/>
+	<field name="ISRret" class="java.lang.Double"/>
+	<field name="SubTotal" class="java.lang.Double"/>
+	<field name="Impuestos" class="java.lang.Double"/>
+	<field name="MontoIVAret" class="java.lang.Double"/>
+	<field name="MontoISRret" class="java.lang.Double"/>
+	<field name="Total" class="java.lang.Double"/>
+	<field name="IdCliente" class="java.lang.Integer"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="RFC" class="java.lang.String"/>
+	<field name="Calle" class="java.lang.String"/>
+	<field name="NumExterior" class="java.lang.String"/>
+	<field name="NumInterior" class="java.lang.String"/>
+	<field name="Colonia" class="java.lang.String"/>
+	<field name="Localidad" class="java.lang.String"/>
+	<field name="Referencia" class="java.lang.String"/>
+	<field name="Municipio" class="java.lang.String"/>
+	<field name="Estado" class="java.lang.String"/>
+	<field name="Pais" class="java.lang.String"/>
+	<field name="CP" class="java.lang.String"/>
+	<field name="DENombre" class="java.lang.String"/>
+	<field name="DEAtencion" class="java.lang.String"/>
+	<field name="DECalle" class="java.lang.String"/>
+	<field name="DENumExterior" class="java.lang.String"/>
+	<field name="DENumInterior" class="java.lang.String"/>
+	<field name="DEColonia" class="java.lang.String"/>
+	<field name="DELocalidad" class="java.lang.String"/>
+	<field name="DEReferencia" class="java.lang.String"/>
+	<field name="DEMunicipio" class="java.lang.String"/>
+	<field name="DEEstado" class="java.lang.String"/>
+	<field name="DEPais" class="java.lang.String"/>
+	<field name="DECP" class="java.lang.String"/>
+	<field name="Observaciones" class="java.lang.String"/>
+	<field name="CadenaOriginal" class="java.lang.String"/>
+	<field name="Sello" class="java.lang.String"/>
+	<field name="TotalCajas" class="java.lang.Integer"/>
+	<field name="CantidadPorCaja" class="java.lang.Integer"/>
+	<field name="Addenda" class="java.lang.Integer"/>
+	<field name="TipoSerie" class="java.lang.String"/>
+	<field name="Moneda" class="java.lang.String"/>
+	<field name="TipoCambio" class="java.lang.Double"/>
+	<field name="Enviado" class="java.lang.Short"/>
+	<field name="FechaEnviado" class="java.sql.Timestamp"/>
+	<field name="CveCliente" class="java.lang.Short"/>
+	<field name="CveAgente" class="java.lang.Short"/>
+	<field name="FormaDePago" class="java.lang.String"/>
+	<field name="MetodoDePago" class="java.lang.String"/>
+	<field name="LugarExpedicion" class="java.lang.String"/>
+	<field name="NumCtaPago" class="java.lang.String"/>
+	<field name="FolioFiscalOrig" class="java.lang.String"/>
+	<field name="SerieFolioFiscalOrig" class="java.lang.String"/>
+	<field name="FechaFolioFiscalOrig" class="java.sql.Timestamp"/>
+	<field name="MontoFolioFiscalOrig" class="java.math.BigDecimal"/>
+	<field name="Parcialidad1" class="java.lang.Integer"/>
+	<field name="Parcialidad2" class="java.lang.Integer"/>
+	<field name="Regimen" class="java.lang.String"/>
+	<field name="FolioFiscal" class="java.lang.String"/>
+	<field name="NodeSerieCertificado" class="java.lang.String"/>
+	<field name="FechaCertificacion" class="java.sql.Timestamp"/>
+	<field name="SelloSat" class="java.lang.String"/>
+	<field name="SelloCFDI" class="java.lang.String"/>
+	<field name="UsoCfdi" class="java.lang.String"/>
+	<field name="TipoRelacion" class="java.lang.String"/>
+	<field name="Monto" class="java.lang.Double"/>
+	<field name="RFCCtaEmisora" class="java.lang.String"/>
+	<field name="CtaEmisora" class="java.lang.String"/>
+	<field name="RFCCtaReceptora" class="java.lang.String"/>
+	<field name="CtaReceptora" class="java.lang.String"/>
+	<field name="BancoEmisor" class="java.lang.String"/>
+	<field name="BancoReceptor" class="java.lang.String"/>
+	<field name="OrdenPago" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="3" splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="130" splitType="Stretch">
+			<rectangle>
+				<reportElement x="460" y="68" width="95" height="12" forecolor="#FFFFFF" backcolor="#DCDCDC" uuid="49570985-5b88-4812-8bce-a39c3d2cedf0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="460" y="46" width="95" height="12" forecolor="#FFFFFF" backcolor="#DCDCDC" uuid="706cbcd9-a77c-4f3c-99b6-adfc99922f48"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="460" y="24" width="95" height="12" forecolor="#FFFFFF" backcolor="#DCDCDC" uuid="e17eba45-8313-49f8-a829-4295890abab8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="460" y="1" width="95" height="11" forecolor="#FFFFFF" backcolor="#DCDCDC" uuid="9643ef17-ac66-4b01-8765-d1bd63822b3a"/>
+			</rectangle>
+			<image>
+				<reportElement x="0" y="24" width="105" height="24" uuid="6e985283-eb5c-4abe-9023-1712fc70b6c5"/>
+				<imageExpression><![CDATA["C:\\ventareport\\Uptown.JPG"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="119" y="0" width="152" height="12" uuid="c72065b4-6141-467b-9dd6-d19c2a5ff86f"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UPTOWN SHOES S.A DE C.V]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="12" width="152" height="12" uuid="766c3d8c-f70d-4757-8851-cf0f3ef7c4a9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RFC USH180221GI4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="24" width="152" height="12" uuid="ac5fc386-b8d2-44b2-b114-e9de2a245327"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[601 GENERAL DE LEY PERSONAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="36" width="152" height="12" uuid="3d8b6d58-8f94-4668-a7da-4cd8374acbca"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MORALES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="48" width="152" height="12" uuid="37fe0082-d2ec-4fa9-ac84-d64c3f511b94"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[36400 PURISIMA DEL RINCON, GTO.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="505" y="12" width="50" height="12" forecolor="#666666" uuid="a8dc6620-3f5b-4958-8a4b-e903d871e7ab"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Folio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="24" width="95" height="12" backcolor="#FFFFFF" uuid="b12f5a78-be31-4380-b25f-494a05f10080"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="36" width="95" height="10" uuid="eafd8072-f77b-452e-b502-0386e5236c1a"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="46" width="95" height="12" backcolor="#FFFFFF" uuid="6f668aa0-1959-4019-a863-3e09350dc9f8"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="58" width="95" height="10" uuid="3e0bc52a-f473-4b8c-8387-3a96e21ace5f"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[00001000000307243774]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="68" width="95" height="12" backcolor="#FFFFFF" uuid="80623c61-2041-4099-b4f5-1421162da13a"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO COMPROBANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="80" width="95" height="10" uuid="4180fa61-9dab-4dd2-987e-2b9e1951c819"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="1" width="95" height="11" backcolor="#FFFFFF" uuid="b6c80d8f-3de9-40ce-bfee-49d6a385d538"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FOLIO]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="100" width="555" height="30" uuid="59bb4265-1b43-4070-831e-cb4095e33bbf"/>
+				<subreportParameter name="d1">
+					<subreportParameterExpression><![CDATA[$P{d1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="d2">
+					<subreportParameterExpression><![CDATA[$P{d2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nombre">
+					<subreportParameterExpression><![CDATA[$P{nombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="folio">
+					<subreportParameterExpression><![CDATA[$F{Folio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "header.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="481" y="12" width="24" height="12" backcolor="#FFFFFF" uuid="1333c240-5b94-4ec7-8fc1-c571ed31b9e7"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAG]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="94" width="555" height="1" uuid="33e828a2-5cd1-4ef8-99c0-149a7461d7cd"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="19" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="49" splitType="Stretch"/>
+	</summary>
+</jasperReport>
