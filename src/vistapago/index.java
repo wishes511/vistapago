@@ -311,6 +311,7 @@ public class index extends javax.swing.JFrame {
         URI url = null;
         try {
             //url=new URI ("C:/ventareport/reportes");
+            
             url = new URI(uri);
             Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
             desktop.browse(url);
