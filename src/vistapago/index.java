@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -45,6 +46,7 @@ public class index extends javax.swing.JFrame {
         super("Temporalmente sin nombre");
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/vistapago/icono.png")).getImage());
         if (so.equals("Linux") || so.equals("linux")) {
             directorio.setText("Directorio de archivos");
             directorioreport = "/home/" + usuario + "/ventareport/reportes/PAGO";
