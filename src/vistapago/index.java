@@ -37,6 +37,8 @@ public class index extends javax.swing.JFrame {
     String usuario = System.getProperty("user.name");
     String directorioreport = "c:\\ventareport\\reportes\\PAGO";
     String uri = "C:/ventareport/reportes";
+    String coppel="";
+    String name="";
     //   JOptionPane.showMessageDialog(null, sSistemaOperativo+" "+usuario);
 
     /**
@@ -93,6 +95,7 @@ public class index extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         nombre = new org.edisoncor.gui.textField.TextFieldRectIcon();
         directorio = new javax.swing.JLabel();
+        buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
 
         jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,34 +158,41 @@ public class index extends javax.swing.JFrame {
             }
         });
 
+        buttonAction1.setText("Comprobante \nCoppel");
+        buttonAction1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAction1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
         panelTranslucido1.setLayout(panelTranslucido1Layout);
         panelTranslucido1Layout.setHorizontalGroup(
             panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTranslucido1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(boton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
-                .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelTranslucido1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelTranslucido1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
-                                .addComponent(d1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(d2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(38, 38, 38))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(directorio, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(panelTranslucido1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
+                        .addComponent(d1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(d2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucido1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+            .addGroup(panelTranslucido1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(boton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(buttonAction1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelTranslucido1Layout.setVerticalGroup(
@@ -200,9 +210,11 @@ public class index extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(boton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
+                .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addComponent(directorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -221,12 +233,14 @@ public class index extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
-        setreport();
+        setreport("n",nombre.getText());
     }//GEN-LAST:event_botonActionPerformed
-    private void setreport() {
+    private void setreport(String tipo,String named) {
+        
         if (verificacampos()) {
+            
             try {
-
+                String tipos = (tipo.equals("n"))?"header.jasper":"header_coppel.jasper";
                 db d = new db();
                 int c1 = Integer.parseInt(d1.getText());
                 int c2 = Integer.parseInt(d2.getText());
@@ -234,8 +248,8 @@ public class index extends javax.swing.JFrame {
                     Map parametros = new HashMap();
                     parametros.put("d1", i);
                     parametros.put("d2", c2);
-                    parametros.put("nombre", nombre.getText());
-                    JasperReport jasper = (JasperReport) JRLoader.loadObject(getClass().getResource("header.jasper"));
+                    parametros.put("nombre", named);
+                    JasperReport jasper = (JasperReport) JRLoader.loadObject(getClass().getResource(tipos));
                     d.abrir();
                     JasperPrint print = JasperFillManager.fillReport(jasper, parametros, d.getConexion());
 //            JasperViewer ver = new JasperViewer(print,false); //despliegue de reporte
@@ -298,7 +312,7 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_d2ActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-        setreport();
+        setreport("n",nombre.getText());
     }//GEN-LAST:event_nombreActionPerformed
 
     private void d1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_d1PropertyChange
@@ -324,6 +338,14 @@ public class index extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_directorioMouseClicked
+
+    private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
+       coppel= JOptionPane.showInputDialog("Ingrese numero de cliente de Coppel para continuar.");
+       if(coppel.equals("289")){
+         setreport("coppel",coppel);
+       }else JOptionPane.showMessageDialog(null, "Se debe de introducir el numero de cliente de Coppel.");
+        
+    }//GEN-LAST:event_buttonAction1ActionPerformed
 
     public void segd1() {
         if (d1.getText().equals("")) {
@@ -390,6 +412,7 @@ public class index extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction boton;
+    private org.edisoncor.gui.button.ButtonAction buttonAction1;
     private org.edisoncor.gui.textField.TextFieldRectImage d1;
     private org.edisoncor.gui.textField.TextFieldRectImage d2;
     private javax.swing.JLabel directorio;

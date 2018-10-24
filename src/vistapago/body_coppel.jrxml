@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="74142ab1-d435-4b5d-a967-4b6a23d0f251">
-	<property name="ireport.zoom" value="3.1384283767210057"/>
+	<property name="ireport.zoom" value="3.452271214393107"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="d1" class="java.lang.Integer">
@@ -13,7 +13,8 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select dd.cantidad,codigo,UMedida,Descripcion,Precio,uuid,dd.folio,dd.moneda,metodopago,noparcialidad,importesdoant,importepagado,impsaldoinsoluto 
+		<![CDATA[select dd.cantidad,codigo,UMedida,Descripcion,Precio,uuid,dd.folio,dd.moneda,metodopago,noparcialidad,importesdoant,importepagado,impsaldoinsoluto,
+c10 = case when dd.FormadePago=03 then 'Transferencia' when dd.FormadePago=17 then 'Compensación' else '' end 
 from doctospago d join doctospagodetalle dd on dd.iddocumento=d.id
 where dd.iddocumento=$P{id} and d.nombre like '%$P!{nombre}%' and d.folio= $P{d1}]]>
 	</queryString>
@@ -30,11 +31,12 @@ where dd.iddocumento=$P{id} and d.nombre like '%$P!{nombre}%' and d.folio= $P{d1
 	<field name="importesdoant" class="java.lang.Double"/>
 	<field name="importepagado" class="java.lang.Double"/>
 	<field name="impsaldoinsoluto" class="java.lang.Double"/>
+	<field name="c10" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<columnHeader>
-		<band height="41" splitType="Stretch">
+		<band height="44" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="15" forecolor="#FFFFFF" backcolor="#CCCCFF" uuid="d7daa0ef-eab4-4026-8458-c39e70e31f37"/>
 			</rectangle>
@@ -151,123 +153,130 @@ where dd.iddocumento=$P{id} and d.nombre like '%$P!{nombre}%' and d.folio= $P{d1
 				<text><![CDATA[0]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="17" y="29" width="138" height="12" uuid="58826212-7aed-4e7f-b60f-2b9af4532ed1"/>
+				<reportElement x="39" y="32" width="138" height="12" uuid="58826212-7aed-4e7f-b60f-2b9af4532ed1"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Folio FIscal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="155" y="29" width="35" height="12" uuid="6a9a6237-24ff-4eb1-b241-d2f2ee11569c"/>
+				<reportElement x="177" y="32" width="35" height="12" uuid="6a9a6237-24ff-4eb1-b241-d2f2ee11569c"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Factura]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="190" y="29" width="33" height="12" uuid="168459c7-471e-4047-ae38-b5a26c3245d7"/>
+				<reportElement x="212" y="32" width="33" height="12" uuid="168459c7-471e-4047-ae38-b5a26c3245d7"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Moneda]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="223" y="29" width="33" height="12" uuid="d969aa97-6f08-4b87-a657-74122e1c37d5"/>
+				<reportElement x="245" y="32" width="33" height="12" uuid="d969aa97-6f08-4b87-a657-74122e1c37d5"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[M.P]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="256" y="29" width="23" height="12" uuid="b0c170ac-ebca-4f4f-8d1c-6fbc86b451d6"/>
+				<reportElement x="278" y="32" width="23" height="12" uuid="b0c170ac-ebca-4f4f-8d1c-6fbc86b451d6"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[#Parc]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="279" y="29" width="70" height="12" uuid="30a5b137-c460-4acd-a3ed-89d6abb46841"/>
+				<reportElement x="301" y="32" width="70" height="12" uuid="30a5b137-c460-4acd-a3ed-89d6abb46841"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Saldo Ant]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="349" y="29" width="83" height="12" uuid="5f591631-5a4b-41ab-abb4-ed9cb189d3b3"/>
+				<reportElement x="371" y="32" width="83" height="12" uuid="5f591631-5a4b-41ab-abb4-ed9cb189d3b3"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Pago]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="433" y="29" width="100" height="12" uuid="f1443374-3833-480a-b7ee-5d37ae6ea66e"/>
+				<reportElement x="455" y="32" width="100" height="12" uuid="f1443374-3833-480a-b7ee-5d37ae6ea66e"/>
 				<textElement textAlignment="Center">
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Saldo]]></text>
 			</staticText>
 			<line>
-				<reportElement x="17" y="40" width="516" height="1" uuid="421a0cb6-25f6-4e10-b647-477f16166083"/>
+				<reportElement x="39" y="43" width="516" height="1" uuid="421a0cb6-25f6-4e10-b647-477f16166083"/>
 			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="13" splitType="Stretch">
+		<band height="12" splitType="Stretch">
 			<textField>
-				<reportElement x="17" y="1" width="138" height="11" uuid="b2c41753-64eb-45d8-852b-338123453640"/>
+				<reportElement x="39" y="0" width="138" height="11" uuid="b2c41753-64eb-45d8-852b-338123453640"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{uuid}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="155" y="1" width="35" height="11" uuid="a90fd863-3e93-4e6a-8995-7cbbc1526cea"/>
+				<reportElement x="177" y="0" width="35" height="11" uuid="a90fd863-3e93-4e6a-8995-7cbbc1526cea"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="190" y="1" width="33" height="11" uuid="21e7a604-47eb-41ea-ac0e-7ec4a2841874"/>
+				<reportElement x="212" y="0" width="33" height="11" uuid="21e7a604-47eb-41ea-ac0e-7ec4a2841874"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{moneda}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="223" y="1" width="33" height="11" uuid="1185d08c-afb9-486c-a419-1832e96c832c"/>
+				<reportElement x="245" y="0" width="33" height="11" uuid="1185d08c-afb9-486c-a419-1832e96c832c"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{metodopago}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="256" y="1" width="23" height="11" uuid="dd175819-3933-4c8d-84dd-e966fa02f04a"/>
+				<reportElement x="278" y="0" width="23" height="11" uuid="dd175819-3933-4c8d-84dd-e966fa02f04a"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{noparcialidad}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="279" y="1" width="70" height="11" uuid="72e6f565-d602-465c-8294-8fa0c799234f"/>
+				<reportElement x="301" y="0" width="70" height="11" uuid="72e6f565-d602-465c-8294-8fa0c799234f"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{importesdoant}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="349" y="1" width="84" height="11" uuid="29262a49-9c0c-45b8-9b86-92b231a29bb5"/>
+				<reportElement x="371" y="0" width="84" height="11" uuid="29262a49-9c0c-45b8-9b86-92b231a29bb5"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{importepagado}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="433" y="1" width="100" height="11" uuid="95f93f6f-4b8f-4e44-b9fc-8dba3adc79e7"/>
+				<reportElement x="455" y="0" width="100" height="11" uuid="95f93f6f-4b8f-4e44-b9fc-8dba3adc79e7"/>
 				<textElement textAlignment="Center">
 					<font size="6"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{impsaldoinsoluto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="39" height="11" uuid="c34d86b4-1826-41a0-bacd-893ce5d7a1db"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{c10}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

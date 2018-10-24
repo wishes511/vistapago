@@ -328,7 +328,7 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 					<subreportParameterExpression><![CDATA[$F{Id}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["C:\\ventareport\\archivos\\body.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["C:\\ventareport\\archivos\\body_coppel.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
