@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="74142ab1-d435-4b5d-a967-4b6a23d0f251">
+	<property name="ireport.zoom" value="1.9487171000000063"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="d1" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nombre" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\ventareport\\archivos\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select dd.formadepago
+from doctospago d join doctospagodetalle dd on dd.iddocumento=d.id
+where dd.iddocumento=$P{id} and d.nombre like '%$P!{nombre}%' and d.folio= $P{d1}
+group by dd.formadepago]]>
+	</queryString>
+	<field name="formadepago" class="java.lang.String"/>
+	<variable name="saldosa" class="java.lang.Double" resetType="Column" calculation="Sum"/>
+	<variable name="pagos" class="java.lang.Double" resetType="Column" calculation="Sum"/>
+	<variable name="saldos" class="java.lang.Double" resetType="Column" calculation="Sum"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="14" uuid="268f6b00-a09c-43d2-99fc-c49d8f517e83"/>
+				<subreportParameter name="d1">
+					<subreportParameterExpression><![CDATA[$P{d1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nombre">
+					<subreportParameterExpression><![CDATA[$P{nombre}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fp">
+					<subreportParameterExpression><![CDATA[$F{formadepago}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="saldoant" toVariable="saldosa" calculation="Sum"/>
+				<returnValue subreportVariable="pago" toVariable="pagos" calculation="Sum"/>
+				<returnValue subreportVariable="saldo" toVariable="saldos" calculation="Sum"/>
+				<returnValue subreportVariable="saldoant" toVariable="total" calculation="Sum"/>
+				<subreportExpression><![CDATA["C:\\ventareport\\archivos\\subbody_coppel.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="18">
+			<textField pattern="#,##0.00">
+				<reportElement x="472" y="1" width="80" height="11" uuid="4f4d9a7c-aea7-4b2d-9a26-66eabcd5ef67"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{saldos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="389" y="1" width="83" height="11" uuid="0807a64b-d67d-4bcb-aa3a-b390aad3e6ea"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{pagos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="319" y="1" width="70" height="11" uuid="e5a2ca90-d818-4ee8-898e-b96c0d1380a3"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{saldosa}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="0bdf9b8e-1b1a-4d3a-8462-c1d042e05d03"/>
+			</line>
+			<staticText>
+				<reportElement x="233" y="0" width="60" height="12" uuid="32a920f5-3970-4593-9edc-e3fac59517de"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Totales : ]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

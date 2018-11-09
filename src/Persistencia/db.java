@@ -7,9 +7,13 @@ package Persistencia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.factura;
 
 /**
  *
@@ -65,6 +69,49 @@ public class db {
             while(rs.next()){resp=true;}
             //System.out.println(q+" - "+resp);
             return resp;
+        }
+        public boolean checkcampos(int folio,Connection c) throws SQLException{
+            boolean resp = false;
+            ResultSet rs;
+            Statement st;
+            String q="select foliofiscal from doctospago where folio="+folio+" and FolioFiscal is null";
+            System.out.println(q);
+            st=c.createStatement();
+            rs=st.executeQuery(q);
+            while(rs.next()){resp=true;}
+            //System.out.println(q+" - "+resp);
+            rs.close();
+            st.close();
+            return resp;
+        }
+        public boolean updatefields(factura f, Connection c) throws SQLException{
+            
+            boolean b = false;
+            String s = "update doctospago set Foliofiscal='"+f.getFoliofiscal()+"',NodeSerieCertificado='"+f.getNocertificado()+"',"
+                    + "FechaCertificacion='"+f.getFechacertificado()+"',SelloSat='"+f.getSellosat()+"',SelloCFDI='"+f.getSellocfdi()+"' "
+                    + "where folio ="+f.getFolio();
+            System.out.println(s);
+            c.setAutoCommit(false);
+          PreparedStatement st = null;
+        int a = 0;
+        try {
+            abrir();
+            
+            st = c.prepareStatement(s);
+            st.executeUpdate();
+            c.commit();
+            b = true;
+        } catch (Exception e) {
+            Logger.getLogger(db.class.getName()).log(Level.SEVERE, null, e);
+            try {
+                c.rollback();
+                b=false;
+            } catch (Exception o) {
+                System.out.println(o.getMessage());
+            }
+        }
+        st.close();
+        return b;
         }
         
     public void cerrar() throws SQLException {

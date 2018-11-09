@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="519" leftMargin="18" rightMargin="18" topMargin="18" bottomMargin="18" uuid="b5de8d39-75fc-44cf-9c85-0fc1dc5df1c0">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="8"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="d1" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\gateway1\\Documents\\NetBeansProjects\\vistapago\\src\\vistapago\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\ventareport\\archivos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select * from doctospago 
@@ -267,13 +267,6 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				<reportElement x="0" y="49" width="82" height="14" uuid="6e7bb249-ac07-4566-a724-042bb1b78a1a"/>
 				<text><![CDATA[Forma de Pago :]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="82" y="49" width="38" height="14" uuid="6302cef0-9f81-492f-bca5-4a0b77c2f8a9"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MetodoDePago}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="297" y="49" width="82" height="14" uuid="f5b3364e-0882-456a-90b9-0bc16293416e"/>
 				<text><![CDATA[Forma de Pago :]]></text>
@@ -296,11 +289,6 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Monto}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="202" y="74" width="84" height="14" uuid="42275769-3fbb-4773-be7a-f98fe62a47e7"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{Moneda}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="297" y="74" width="49" height="14" uuid="50234ac6-77d4-4703-bd53-83bf313a30d0"/>
 				<text><![CDATA[Uso CFDI: ]]></text>
@@ -317,7 +305,7 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				<textFieldExpression><![CDATA[$F{OrdenPago}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="2" y="111" width="517" height="13" uuid="5b07d074-95a4-41b6-8080-5096c081eb87"/>
+				<reportElement x="2" y="99" width="517" height="25" uuid="5b07d074-95a4-41b6-8080-5096c081eb87"/>
 				<subreportParameter name="d1">
 					<subreportParameterExpression><![CDATA[$P{d1}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -330,6 +318,27 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA["C:\\ventareport\\archivos\\body_coppel.jasper"]]></subreportExpression>
 			</subreport>
+			<staticText>
+				<reportElement x="82" y="55" width="100" height="11" uuid="1421cb9c-614e-4fdf-9f59-1bae659763f2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[17, Compensación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="45" width="100" height="11" uuid="00cdfe2a-6032-431f-8f2b-c6b0f98553b9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[03, Tranferencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="74" width="95" height="14" uuid="4539c2f4-f6e6-452a-8560-29a68306c855"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MXN]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>
@@ -478,7 +487,7 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				<text><![CDATA[Cadena Original]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="49" y="157" width="442" height="81" uuid="322b2e8b-fa8b-4f43-aab0-00d8bf2a61ed"/>
+				<reportElement x="49" y="157" width="468" height="81" uuid="322b2e8b-fa8b-4f43-aab0-00d8bf2a61ed"/>
 				<textElement>
 					<font size="6"/>
 				</textElement>

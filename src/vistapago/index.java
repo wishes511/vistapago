@@ -5,11 +5,14 @@
  */
 package vistapago;
 
+import DAO.DAOfactura;
 import Persistencia.db;
+import modelo.Factura_xml;
 import java.net.URI;
 import java.awt.Desktop;
 import java.io.File;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -37,8 +40,9 @@ public class index extends javax.swing.JFrame {
 
     String so = System.getProperty("os.name");
     String usuario = System.getProperty("user.name");
-    String directorioreport = "Z:\\TIMBRADOS\\XML_TIM\\PAG_";
-    String uri = "Z:/TIMBRADOS/XML_TIM";
+   
+    String directorioreport =(usuario.equals("gateway1")||usuario.equals("GATEWAY1-"))? "Z:\\TIMBRADOS\\XML_TIM\\":"E:\\TIMBRADOS\\XML_TIM\\";
+    String uri = (usuario.equals("gateway1")||usuario.equals("GATEWAY1-"))?"Z:/TIMBRADOS/XML_TIM":"E:/TIMBRADOS/XML_TIM";
     String coppel = "";
     String name = "";
     //   JOptionPane.showMessageDialog(null, sSistemaOperativo+" "+usuario);
@@ -49,6 +53,7 @@ public class index extends javax.swing.JFrame {
     public index() {
         super("Temporalmente sin nombre");
         initComponents();
+         System.out.println(usuario);
         bg.add(rb1);
         bg.add(rb2);
         rb1.setToolTipText("Busca Pagos de ATHLETIC");
@@ -339,6 +344,15 @@ public class index extends javax.swing.JFrame {
                 int c2 = Integer.parseInt(d2.getText());
                 for (int i = c1; i <= c2; i++) {
                     if (d.ifexistfolio(i, conexion)) {
+                        Factura_xml xml= new Factura_xml();
+                        ArrayList<String> arr = new ArrayList<String>();
+                        arr=xml.cargar_xml(directorioreport+"PAG_"+i+".xml");
+                        System.out.println("XML # "+directorioreport+"PAG_"+i+".xml");
+                        DAOfactura df = new DAOfactura();
+                        if(df.checkdatos(i, conexion)){
+                            arr.add(String.valueOf(i));
+                           df.actualizadatos(arr, conexion);
+                        }
                         Map parametros = new HashMap();
                         parametros.put("d1", i);
                         parametros.put("d2", c2);
@@ -350,8 +364,7 @@ public class index extends javax.swing.JFrame {
 //            ver.setVisible(true);
                         JRExporter exporter = new JRPdfExporter();
                         exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                        //exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("c:\\ventareport\\reportes\\PAGO" + i + ".pdf"));
-                        exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File(directorioreport + "" + i + ".pdf"));
+                        exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File(directorioreport + "PAG_" + i + ".pdf"));
                         exporter.exportReport();
                     }
                 }
@@ -359,10 +372,12 @@ public class index extends javax.swing.JFrame {
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Algunos de los campos esta vacio, Intentelo de nuevo.");
                 e.printStackTrace();
-            } catch (net.sf.jasperreports.engine.JRException es) {
+            }
+            catch (net.sf.jasperreports.engine.JRException es) {
                 JOptionPane.showMessageDialog(null, "Error con el directorio raiz de reportes.");
                 es.printStackTrace();
-            } catch (Exception e) {
+            } 
+            catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getCause() + e.getMessage());
                 JOptionPane.showMessageDialog(null, "Error desconocido llame a un administrador.\n Causa del error: \n" + e);
                 e.printStackTrace();
@@ -444,7 +459,7 @@ public class index extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         rb1.setSelected(true);
-        buttonempresa("Z");
+        buttonempresa((usuario.equals("gateway1")||usuario.equals("GATEWAY1-"))?"Z":"E");
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -453,7 +468,7 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void rb1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rb1MouseClicked
-        buttonempresa("Z");
+        buttonempresa((usuario.equals("gateway1")||usuario.equals("GATEWAY1-"))?"Z":"E");
     }//GEN-LAST:event_rb1MouseClicked
 
     private void rb2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rb2MouseClicked
@@ -461,7 +476,7 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_rb2MouseClicked
 
     private void rb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb1ActionPerformed
-         buttonempresa("Z");
+         buttonempresa((usuario.equals("gateway1")||usuario.equals("GATEWAY1-"))?"Z":"E");
     }//GEN-LAST:event_rb1ActionPerformed
 
     private void rb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb2ActionPerformed
@@ -469,7 +484,7 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_rb2ActionPerformed
 private void buttonempresa(String unidad){
         uri = unidad+":/TIMBRADOS/XML_TIM";
-        directorioreport = unidad+":\\TIMBRADOS\\XML_TIM\\PAG_";
+        directorioreport = unidad+":\\TIMBRADOS\\XML_TIM\\";
         vistaurl.setText(directorioreport);
 }
     public void segd1() {
