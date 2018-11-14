@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="519" leftMargin="18" rightMargin="18" topMargin="18" bottomMargin="18" uuid="b5de8d39-75fc-44cf-9c85-0fc1dc5df1c0">
-	<property name="ireport.zoom" value="1.6105100000000017"/>
-	<property name="ireport.x" value="68"/>
+	<property name="ireport.zoom" value="1.3310000000000013"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="d1" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
@@ -228,21 +228,21 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="82" y="24" width="288" height="14" uuid="9bf96ac8-08d4-49f3-b98a-9817cadc0cef"/>
+				<reportElement x="82" y="28" width="288" height="14" uuid="9bf96ac8-08d4-49f3-b98a-9817cadc0cef"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="424" y="24" width="95" height="14" uuid="3c977275-214a-4943-b985-32f54d125e37"/>
+				<reportElement x="424" y="28" width="95" height="14" uuid="3c977275-214a-4943-b985-32f54d125e37"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{RFC}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="24" width="82" height="14" uuid="d845267f-b139-4a64-a66e-7937a6b5d404"/>
+				<reportElement x="0" y="28" width="82" height="14" uuid="d845267f-b139-4a64-a66e-7937a6b5d404"/>
 				<text><![CDATA[Receptor:]]></text>
 			</staticText>
 			<staticText>
@@ -264,41 +264,41 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				<text><![CDATA[USH180221GI4]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="49" width="82" height="14" uuid="6e7bb249-ac07-4566-a724-042bb1b78a1a"/>
+				<reportElement x="0" y="61" width="82" height="14" uuid="6e7bb249-ac07-4566-a724-042bb1b78a1a"/>
 				<text><![CDATA[Forma de Pago :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="49" width="82" height="14" uuid="f5b3364e-0882-456a-90b9-0bc16293416e"/>
+				<reportElement x="297" y="61" width="82" height="14" uuid="f5b3364e-0882-456a-90b9-0bc16293416e"/>
 				<text><![CDATA[Forma de Pago :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="379" y="49" width="140" height="14" uuid="d32ef6d0-a037-4ff6-8659-4de376a490ef"/>
+				<reportElement x="379" y="61" width="140" height="14" uuid="d32ef6d0-a037-4ff6-8659-4de376a490ef"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FechaEntrega}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="74" width="82" height="14" uuid="7c30cd7f-cec9-4942-8983-89e6b0bbcd9b"/>
+				<reportElement x="0" y="86" width="82" height="14" uuid="7c30cd7f-cec9-4942-8983-89e6b0bbcd9b"/>
 				<text><![CDATA[Importe Pago : ]]></text>
 			</staticText>
 			<textField pattern="#,##0.00">
-				<reportElement x="82" y="74" width="120" height="14" uuid="0961ce13-2fa4-4c5d-be24-47cd99e3fca0"/>
+				<reportElement x="82" y="86" width="120" height="14" uuid="0961ce13-2fa4-4c5d-be24-47cd99e3fca0"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Monto}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="297" y="74" width="49" height="14" uuid="50234ac6-77d4-4703-bd53-83bf313a30d0"/>
+				<reportElement x="297" y="86" width="49" height="14" uuid="50234ac6-77d4-4703-bd53-83bf313a30d0"/>
 				<text><![CDATA[Uso CFDI: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="346" y="74" width="33" height="14" uuid="d18921fa-d8a4-49dd-8732-c777c6aa1bf3"/>
+				<reportElement x="346" y="86" width="33" height="14" uuid="d18921fa-d8a4-49dd-8732-c777c6aa1bf3"/>
 				<textFieldExpression><![CDATA[$F{UsoCfdi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="460" y="88" width="57" height="11" forecolor="#666666" uuid="63c19148-d6d9-4b0a-8aa6-d9b28c7056dd"/>
+				<reportElement x="460" y="100" width="57" height="11" forecolor="#666666" uuid="63c19148-d6d9-4b0a-8aa6-d9b28c7056dd"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -319,25 +319,81 @@ where  nombre like '%$P!{nombre}%' and folio= $P{d1}]]>
 				<subreportExpression><![CDATA["C:\\ventareport\\archivos\\body.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="82" y="55" width="100" height="11" uuid="46cf5f8d-7948-4314-a6b1-14bf4b60b567"/>
+				<reportElement x="82" y="67" width="100" height="11" uuid="46cf5f8d-7948-4314-a6b1-14bf4b60b567"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[17, Compensación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="82" y="45" width="100" height="11" uuid="ae97b8f9-ef4f-4fa8-b2f6-0ea1094eb73b"/>
+				<reportElement x="82" y="57" width="100" height="11" uuid="ae97b8f9-ef4f-4fa8-b2f6-0ea1094eb73b"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[03, Tranferencia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="74" width="95" height="14" uuid="59926298-b5fc-4a2c-abaa-b616a912939c"/>
+				<reportElement x="202" y="86" width="95" height="14" uuid="59926298-b5fc-4a2c-abaa-b616a912939c"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[MXN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="82" y="14" width="165" height="14" uuid="34eb449e-40ce-4694-a2f8-d3cfb5a77480"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BancoEmisor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="14" width="100" height="14" uuid="4baa7f69-99cc-403a-a78d-c0169ee8bc4d"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RFCCtaEmisora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="398" y="14" width="21" height="14" uuid="5772fd78-cd2c-4334-be1c-f92e43eb3f40"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cta.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="419" y="14" width="100" height="14" uuid="76d2d7e1-14c4-4884-86ae-d770992a8a56"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CtaEmisora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="42" width="165" height="14" uuid="a354471f-130f-4b14-b0a8-07e8abdaab51"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BancoReceptor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="42" width="100" height="14" uuid="436eee74-8438-4e13-b605-719502288dd0"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CtaReceptora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="42" width="100" height="14" uuid="4a8f3f02-9965-4854-b85e-227e246db921"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RFCCtaReceptora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="398" y="42" width="21" height="14" uuid="d65fbea6-1c6a-47f4-9d75-0ee65c55dafc"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cta.:]]></text>
 			</staticText>
 		</band>
 	</detail>

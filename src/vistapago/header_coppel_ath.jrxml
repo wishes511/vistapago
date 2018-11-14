@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="519" leftMargin="18" rightMargin="18" topMargin="18" bottomMargin="18" uuid="b5de8d39-75fc-44cf-9c85-0fc1dc5df1c0">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="126"/>
+	<property name="ireport.y" value="288"/>
 	<parameter name="d1" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -13,27 +13,98 @@
 		<defaultValueExpression><![CDATA["C:\\ventareport\\archivos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select Fecha,Nombre,RFC,Metododepago,FechaEntrega,Monto,UsoCfdi,OrdenPago,FolioFiscal,NodeSerieCertificado,id, FechaCertificacion,SelloSat,Sello,CadenaOriginal,Folio,Moneda
+		<![CDATA[select *
 from doctospago
 where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 	</queryString>
+	<field name="Id" class="java.lang.Integer"/>
+	<field name="ClaveUsuario" class="java.lang.String"/>
+	<field name="Serie" class="java.lang.String"/>
+	<field name="Folio" class="java.lang.Long"/>
+	<field name="NumeroAprobacion" class="java.lang.Long"/>
+	<field name="AnoAprobacion" class="java.lang.Integer"/>
 	<field name="Fecha" class="java.sql.Timestamp"/>
+	<field name="Estatus" class="java.lang.Integer"/>
+	<field name="FechaCancel" class="java.sql.Timestamp"/>
+	<field name="Descuento" class="java.lang.Double"/>
+	<field name="MotivoDescuento" class="java.lang.String"/>
+	<field name="NumPedido" class="java.lang.String"/>
+	<field name="FechaSolicitado" class="java.sql.Timestamp"/>
+	<field name="Condicion" class="java.lang.String"/>
+	<field name="FechaEntrega" class="java.sql.Timestamp"/>
+	<field name="Retenciones" class="java.lang.Short"/>
+	<field name="Iva" class="java.lang.Double"/>
+	<field name="IVAret" class="java.lang.Double"/>
+	<field name="ISRret" class="java.lang.Double"/>
+	<field name="SubTotal" class="java.lang.Double"/>
+	<field name="Impuestos" class="java.lang.Double"/>
+	<field name="MontoIVAret" class="java.lang.Double"/>
+	<field name="MontoISRret" class="java.lang.Double"/>
+	<field name="Total" class="java.lang.Double"/>
+	<field name="IdCliente" class="java.lang.Integer"/>
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="RFC" class="java.lang.String"/>
-	<field name="Metododepago" class="java.lang.String"/>
-	<field name="FechaEntrega" class="java.sql.Timestamp"/>
-	<field name="Monto" class="java.lang.Double"/>
-	<field name="UsoCfdi" class="java.lang.String"/>
-	<field name="OrdenPago" class="java.lang.String"/>
+	<field name="Calle" class="java.lang.String"/>
+	<field name="NumExterior" class="java.lang.String"/>
+	<field name="NumInterior" class="java.lang.String"/>
+	<field name="Colonia" class="java.lang.String"/>
+	<field name="Localidad" class="java.lang.String"/>
+	<field name="Referencia" class="java.lang.String"/>
+	<field name="Municipio" class="java.lang.String"/>
+	<field name="Estado" class="java.lang.String"/>
+	<field name="Pais" class="java.lang.String"/>
+	<field name="CP" class="java.lang.String"/>
+	<field name="DENombre" class="java.lang.String"/>
+	<field name="DEAtencion" class="java.lang.String"/>
+	<field name="DECalle" class="java.lang.String"/>
+	<field name="DENumExterior" class="java.lang.String"/>
+	<field name="DENumInterior" class="java.lang.String"/>
+	<field name="DEColonia" class="java.lang.String"/>
+	<field name="DELocalidad" class="java.lang.String"/>
+	<field name="DEReferencia" class="java.lang.String"/>
+	<field name="DEMunicipio" class="java.lang.String"/>
+	<field name="DEEstado" class="java.lang.String"/>
+	<field name="DEPais" class="java.lang.String"/>
+	<field name="DECP" class="java.lang.String"/>
+	<field name="Observaciones" class="java.lang.String"/>
+	<field name="CadenaOriginal" class="java.lang.String"/>
+	<field name="Sello" class="java.lang.String"/>
+	<field name="TotalCajas" class="java.lang.Integer"/>
+	<field name="CantidadPorCaja" class="java.lang.Integer"/>
+	<field name="Addenda" class="java.lang.Integer"/>
+	<field name="TipoSerie" class="java.lang.String"/>
+	<field name="Moneda" class="java.lang.String"/>
+	<field name="TipoCambio" class="java.lang.Double"/>
+	<field name="Enviado" class="java.lang.Short"/>
+	<field name="FechaEnviado" class="java.sql.Timestamp"/>
+	<field name="CveCliente" class="java.lang.Short"/>
+	<field name="CveAgente" class="java.lang.Short"/>
+	<field name="FormaDePago" class="java.lang.String"/>
+	<field name="MetodoDePago" class="java.lang.String"/>
+	<field name="LugarExpedicion" class="java.lang.String"/>
+	<field name="NumCtaPago" class="java.lang.String"/>
+	<field name="FolioFiscalOrig" class="java.lang.String"/>
+	<field name="SerieFolioFiscalOrig" class="java.lang.String"/>
+	<field name="FechaFolioFiscalOrig" class="java.sql.Timestamp"/>
+	<field name="MontoFolioFiscalOrig" class="java.math.BigDecimal"/>
+	<field name="Parcialidad1" class="java.lang.Integer"/>
+	<field name="Parcialidad2" class="java.lang.Integer"/>
+	<field name="Regimen" class="java.lang.String"/>
 	<field name="FolioFiscal" class="java.lang.String"/>
 	<field name="NodeSerieCertificado" class="java.lang.String"/>
-	<field name="id" class="java.lang.Integer"/>
 	<field name="FechaCertificacion" class="java.sql.Timestamp"/>
 	<field name="SelloSat" class="java.lang.String"/>
-	<field name="Sello" class="java.lang.String"/>
-	<field name="CadenaOriginal" class="java.lang.String"/>
-	<field name="Folio" class="java.lang.Long"/>
-	<field name="Moneda" class="java.lang.String"/>
+	<field name="SelloCFDI" class="java.lang.String"/>
+	<field name="UsoCfdi" class="java.lang.String"/>
+	<field name="TipoRelacion" class="java.lang.String"/>
+	<field name="Monto" class="java.lang.Double"/>
+	<field name="RFCCtaEmisora" class="java.lang.String"/>
+	<field name="CtaEmisora" class="java.lang.String"/>
+	<field name="RFCCtaReceptora" class="java.lang.String"/>
+	<field name="CtaReceptora" class="java.lang.String"/>
+	<field name="BancoEmisor" class="java.lang.String"/>
+	<field name="BancoReceptor" class="java.lang.String"/>
+	<field name="OrdenPago" class="java.lang.String"/>
 	<variable name="total" class="java.lang.Double" calculation="Sum"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -159,21 +230,21 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="82" y="24" width="288" height="14" uuid="9bf96ac8-08d4-49f3-b98a-9817cadc0cef"/>
+				<reportElement x="82" y="28" width="288" height="14" uuid="9bf96ac8-08d4-49f3-b98a-9817cadc0cef"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="424" y="24" width="95" height="14" uuid="3c977275-214a-4943-b985-32f54d125e37"/>
+				<reportElement x="424" y="28" width="95" height="14" uuid="3c977275-214a-4943-b985-32f54d125e37"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{RFC}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="24" width="82" height="14" uuid="d845267f-b139-4a64-a66e-7937a6b5d404"/>
+				<reportElement x="0" y="28" width="82" height="14" uuid="d845267f-b139-4a64-a66e-7937a6b5d404"/>
 				<text><![CDATA[Receptor:]]></text>
 			</staticText>
 			<staticText>
@@ -195,33 +266,33 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 				<text><![CDATA[AFO901221IC2]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="49" width="82" height="14" uuid="6e7bb249-ac07-4566-a724-042bb1b78a1a"/>
+				<reportElement x="1" y="60" width="82" height="14" uuid="6e7bb249-ac07-4566-a724-042bb1b78a1a"/>
 				<text><![CDATA[Forma de Pago :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="297" y="49" width="82" height="14" uuid="f5b3364e-0882-456a-90b9-0bc16293416e"/>
+				<reportElement x="298" y="60" width="82" height="14" uuid="f5b3364e-0882-456a-90b9-0bc16293416e"/>
 				<text><![CDATA[Forma de Pago :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="379" y="49" width="140" height="14" uuid="d32ef6d0-a037-4ff6-8659-4de376a490ef"/>
+				<reportElement x="380" y="60" width="137" height="14" uuid="d32ef6d0-a037-4ff6-8659-4de376a490ef"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FechaEntrega}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="82" y="74" width="120" height="14" uuid="0961ce13-2fa4-4c5d-be24-47cd99e3fca0"/>
+				<reportElement x="82" y="79" width="120" height="14" uuid="0961ce13-2fa4-4c5d-be24-47cd99e3fca0"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Monto}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="297" y="74" width="49" height="14" uuid="50234ac6-77d4-4703-bd53-83bf313a30d0"/>
+				<reportElement x="297" y="79" width="49" height="14" uuid="50234ac6-77d4-4703-bd53-83bf313a30d0"/>
 				<text><![CDATA[Uso CFDI: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="346" y="74" width="33" height="14" uuid="d18921fa-d8a4-49dd-8732-c777c6aa1bf3"/>
+				<reportElement x="346" y="79" width="33" height="14" uuid="d18921fa-d8a4-49dd-8732-c777c6aa1bf3"/>
 				<textFieldExpression><![CDATA[$F{UsoCfdi}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -232,14 +303,14 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 				<textFieldExpression><![CDATA[$F{OrdenPago}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="82" y="57" width="100" height="11" uuid="52068c3b-d010-47c3-ade6-7a0a37cc7c85"/>
+				<reportElement x="83" y="68" width="100" height="11" uuid="52068c3b-d010-47c3-ade6-7a0a37cc7c85"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[17, Compensación]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="82" y="47" width="100" height="11" uuid="3207e22b-8dfc-4dcd-923e-ff6c1db767c0"/>
+				<reportElement x="83" y="58" width="100" height="11" uuid="3207e22b-8dfc-4dcd-923e-ff6c1db767c0"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -254,23 +325,79 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 					<subreportParameterExpression><![CDATA[$P{nombre}]]></subreportParameterExpression>
 				</subreportParameter>
 				<subreportParameter name="id">
-					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+					<subreportParameterExpression><![CDATA[$F{Id}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<returnValue subreportVariable="total" toVariable="total" calculation="Sum"/>
 				<subreportExpression><![CDATA["C:\\ventareport\\archivos\\body_coppel.jasper"]]></subreportExpression>
 			</subreport>
 			<staticText>
-				<reportElement x="1" y="74" width="82" height="14" uuid="7c30cd7f-cec9-4942-8983-89e6b0bbcd9b"/>
+				<reportElement x="1" y="79" width="82" height="14" uuid="7c30cd7f-cec9-4942-8983-89e6b0bbcd9b"/>
 				<text><![CDATA[Importe Pago : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="202" y="74" width="95" height="14" uuid="ba2a0606-ea5d-4de3-ba41-4b7fe20cc6b1"/>
+				<reportElement x="202" y="79" width="95" height="14" uuid="ba2a0606-ea5d-4de3-ba41-4b7fe20cc6b1"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[MXN]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="272" y="14" width="100" height="14" uuid="7f4dce38-2843-476f-83e7-c87ed012a23c"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RFCCtaEmisora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="14" width="100" height="14" uuid="bc496549-bc07-4dd9-b630-9eb8c892ef03"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CtaEmisora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="14" width="165" height="14" uuid="5181ecb8-c06f-43f8-96a8-07dbd802f9fd"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BancoEmisor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="14" width="21" height="14" uuid="7980fba9-7093-479d-b2b6-9a02d2d2d687"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cta.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="419" y="42" width="100" height="14" uuid="dc012802-3429-472c-a634-802a88f49860"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CtaReceptora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="398" y="42" width="21" height="14" uuid="0d6d4378-e906-41c2-be16-e2802f0cf554"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cta.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="82" y="42" width="165" height="14" uuid="47962de2-2be9-48f0-9374-1383102f2887"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BancoReceptor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="42" width="100" height="14" uuid="41f43b38-6e56-418c-aa3e-f9967cfa7b37"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RFCCtaReceptora}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>
