@@ -53,7 +53,7 @@ public class index extends javax.swing.JFrame {
     public index() {
         super("Temporalmente sin nombre");
         initComponents();
-         System.out.println(usuario);
+//         System.out.println(usuario);
         bg.add(rb1);
         bg.add(rb2);
         rb1.setToolTipText("Busca Pagos de ATHLETIC");
@@ -337,7 +337,7 @@ public class index extends javax.swing.JFrame {
                 if(rb2.isSelected()){
                 tipos = (tipo.equals("n")) ? "header.jasper" : "header_coppel.jasper";
                 }else tipos = (tipo.equals("n")) ? "header_ath.jasper" : "header_coppel_ath.jasper";
-                System.out.println(tipos+"-"+uri+"-"+directorioreport);
+//                System.out.println(tipos+"-"+uri+"-"+directorioreport);
                 db d = new db();
                 Connection conexion = (rb1.isSelected()) ? d.getConexionath() : d.getConexion();
                 int c1 = Integer.parseInt(d1.getText());
@@ -347,7 +347,7 @@ public class index extends javax.swing.JFrame {
                         Factura_xml xml= new Factura_xml();
                         ArrayList<String> arr = new ArrayList<String>();
                         arr=xml.cargar_xml(directorioreport+"PAG_"+i+".xml");
-                        System.out.println("XML # "+directorioreport+"PAG_"+i+".xml");
+//                        System.out.println("XML # "+directorioreport+"PAG_"+i+".xml");
                         DAOfactura df = new DAOfactura();
                         if(df.checkdatos(i, conexion)){
                             arr.add(String.valueOf(i));

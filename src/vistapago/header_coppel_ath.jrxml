@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="802" columnWidth="519" leftMargin="18" rightMargin="18" topMargin="18" bottomMargin="18" uuid="b5de8d39-75fc-44cf-9c85-0fc1dc5df1c0">
 	<property name="ireport.zoom" value="1.6105100000000017"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="288"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="d1" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -141,7 +141,7 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 			<rectangle>
 				<reportElement x="424" y="67" width="95" height="12" forecolor="#FFFFFF" backcolor="#DCDCDC" uuid="4d985611-b639-4f45-9c44-0590c580be67"/>
 			</rectangle>
-			<textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
 				<reportElement x="424" y="35" width="95" height="10" uuid="df46f5d3-36cf-4345-9c6a-b6897279cdff"/>
 				<textElement textAlignment="Center">
 					<font size="6" isBold="true"/>
@@ -271,9 +271,9 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 			</staticText>
 			<staticText>
 				<reportElement x="298" y="60" width="82" height="14" uuid="f5b3364e-0882-456a-90b9-0bc16293416e"/>
-				<text><![CDATA[Forma de Pago :]]></text>
+				<text><![CDATA[Fecha de Pago :]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
 				<reportElement x="380" y="60" width="137" height="14" uuid="d32ef6d0-a037-4ff6-8659-4de376a490ef"/>
 				<textElement>
 					<font isBold="true"/>
@@ -343,61 +343,61 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 				<text><![CDATA[MXN]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="272" y="14" width="100" height="14" uuid="7f4dce38-2843-476f-83e7-c87ed012a23c"/>
-				<textElement textAlignment="Center">
-					<font size="8" isItalic="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{RFCCtaEmisora}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="420" y="14" width="100" height="14" uuid="bc496549-bc07-4dd9-b630-9eb8c892ef03"/>
-				<textElement>
-					<font size="8" isItalic="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CtaEmisora}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="83" y="14" width="165" height="14" uuid="5181ecb8-c06f-43f8-96a8-07dbd802f9fd"/>
-				<textElement textAlignment="Center">
-					<font size="8" isItalic="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BancoEmisor}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="399" y="14" width="21" height="14" uuid="7980fba9-7093-479d-b2b6-9a02d2d2d687"/>
-				<textElement>
-					<font size="8" isItalic="true"/>
-				</textElement>
-				<text><![CDATA[Cta.:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="419" y="42" width="100" height="14" uuid="dc012802-3429-472c-a634-802a88f49860"/>
+				<reportElement x="419" y="14" width="100" height="14" uuid="dc012802-3429-472c-a634-802a88f49860"/>
 				<textElement>
 					<font size="8" isItalic="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CtaReceptora}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="398" y="42" width="21" height="14" uuid="0d6d4378-e906-41c2-be16-e2802f0cf554"/>
+				<reportElement x="398" y="14" width="21" height="14" uuid="0d6d4378-e906-41c2-be16-e2802f0cf554"/>
 				<textElement>
 					<font size="8" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[Cta.:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="82" y="42" width="165" height="14" uuid="47962de2-2be9-48f0-9374-1383102f2887"/>
+				<reportElement x="82" y="14" width="165" height="14" uuid="47962de2-2be9-48f0-9374-1383102f2887"/>
 				<textElement textAlignment="Center">
 					<font size="8" isItalic="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{BancoReceptor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="272" y="42" width="100" height="14" uuid="41f43b38-6e56-418c-aa3e-f9967cfa7b37"/>
+				<reportElement x="272" y="14" width="100" height="14" uuid="41f43b38-6e56-418c-aa3e-f9967cfa7b37"/>
 				<textElement textAlignment="Center">
 					<font size="8" isItalic="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{RFCCtaReceptora}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="272" y="42" width="100" height="14" uuid="7f4dce38-2843-476f-83e7-c87ed012a23c"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RFCCtaEmisora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="42" width="100" height="14" uuid="bc496549-bc07-4dd9-b630-9eb8c892ef03"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CtaEmisora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="42" width="165" height="14" uuid="5181ecb8-c06f-43f8-96a8-07dbd802f9fd"/>
+				<textElement textAlignment="Center">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BancoEmisor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="42" width="21" height="14" uuid="7980fba9-7093-479d-b2b6-9a02d2d2d687"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Cta.:]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>
@@ -470,7 +470,7 @@ where  nombre like '%$P!{nombre}%' and Folio= $P{d1}]]>
 				</textElement>
 				<text><![CDATA[Fecha yHora de Certificación]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
 				<reportElement x="102" y="53" width="100" height="10" uuid="16730a61-dba7-44b9-85b7-0bc317743ead"/>
 				<textElement>
 					<font size="6" isBold="true"/>

@@ -39,10 +39,10 @@ public class Factura_xml {
             
             String strFolio = rootNode.getAttributeValue("Folio");
             String strFolio1 = rootNode.getAttributeValue("folio");
-            System.out.println(rootNode.isRootElement()+"- "+rootNode.getName()+"- "+rootNode.getChildren()+"\n"+strFolio);
+            //System.out.println(rootNode.isRootElement()+"- "+rootNode.getName()+"- "+rootNode.getChildren()+"\n"+strFolio);
             //arr = Inicio(arr, rootNode);// primeros componentes de la factura
             List list = rootNode.getChildren();
-            System.out.println(list.size());
+            //System.out.println(list.size());
             boolean emisor = false;
             boolean receptor = false;
 
@@ -109,7 +109,7 @@ public class Factura_xml {
 
         } catch (IOException io) {
              Logger.getLogger(Factura_xml.class.getName()).log(Level.SEVERE, null, io);
-            System.out.println(io.getMessage());
+            //System.out.println(io.getMessage());
         } catch (JDOMException ex) {
             Logger.getLogger(Factura_xml.class.getName()).log(Level.SEVERE, null, ex);
         }
