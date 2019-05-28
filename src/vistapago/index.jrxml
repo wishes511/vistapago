@@ -244,7 +244,7 @@ where nombre like '%$P!{nombre}%' and (folio between $P{d1} and $P{d2})]]>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[PAG]]></text>
+				<text><![CDATA[FAC]]></text>
 			</staticText>
 			<line>
 				<reportElement x="0" y="94" width="555" height="1" uuid="33e828a2-5cd1-4ef8-99c0-149a7461d7cd"/>
